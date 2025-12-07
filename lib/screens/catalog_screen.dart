@@ -2,6 +2,8 @@ import 'package:cart_app/cubit/catalog_cubit.dart';
 import 'package:cart_app/models/products.dart';
 import 'package:cart_app/screens/home_screen.dart';
 import 'package:cart_app/screens/order_histor_screen.dart';
+import 'package:cart_app/widgets/category_rail.dart';
+import 'package:cart_app/widgets/flasg_sale_section.dart';
 import 'package:cart_app/widgets/product_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,6 +49,7 @@ class CatalogScreen extends StatelessWidget {
           return ListView(
             padding: const EdgeInsets.only(bottom: 40, top: 20),
             children: [
+              CategoryRail(),
               ProductSection(title: "Featured Setup", products: state.products),
               const SizedBox(height: 30),
               ProductSection(
@@ -54,7 +57,7 @@ class CatalogScreen extends StatelessWidget {
                 products: state.products.reversed.toList(),
               ),
               const SizedBox(height: 30),
-              ProductSection(
+              FlashSaleSection(
                 title: "Flash Deals 🔥",
                 products: state.products.take(3).toList(),
               ),
