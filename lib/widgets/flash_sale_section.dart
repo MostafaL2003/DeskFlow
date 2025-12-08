@@ -16,7 +16,6 @@ class FlashSaleSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // TITLE
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Text(
@@ -26,7 +25,6 @@ class FlashSaleSection extends StatelessWidget {
         ),
         const SizedBox(height: 15),
 
-        // LIST
         SizedBox(
           height: 280,
           child: ListView.builder(
@@ -36,9 +34,8 @@ class FlashSaleSection extends StatelessWidget {
             itemBuilder: (context, index) {
               final product = products[index];
 
-              // THE CARD
               return Container(
-                width: 170, // <--- 1. FIXED WIDTH ADDED
+                width: 170,
                 margin: const EdgeInsets.only(right: 15, bottom: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -56,7 +53,6 @@ class FlashSaleSection extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // IMAGE & PRICE
                       Stack(
                         children: [
                           Image.network(
@@ -95,15 +91,12 @@ class FlashSaleSection extends StatelessWidget {
                         ],
                       ),
 
-                      // 2. TEXT & BUTTON (Wrapped in Expanded)
                       Expanded(
-                        // <--- 2. THE FIX: Forces this section to fill the remaining space
                         child: Padding(
                           padding: const EdgeInsets.all(12),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              // Product Name
                               Text(
                                 product.name,
                                 maxLines: 2,
@@ -113,8 +106,8 @@ class FlashSaleSection extends StatelessWidget {
                                 ),
                               ),
 
-                              const Spacer(), // <--- Now Spacer is happy because Expanded gave it limits!
-                              // Row: Flash Text + Green Button
+                              const Spacer(),
+
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -128,7 +121,6 @@ class FlashSaleSection extends StatelessWidget {
                                     ),
                                   ),
 
-                                  // THE BUY BUTTON
                                   Container(
                                     height: 35,
                                     width: 35,
@@ -143,9 +135,7 @@ class FlashSaleSection extends StatelessWidget {
                                         color: Colors.white,
                                         size: 20,
                                       ),
-                                      onPressed: (
-                                        
-                                      ) {
+                                      onPressed: () {
                                         print("Added ${product.name}");
                                       },
                                     ),
